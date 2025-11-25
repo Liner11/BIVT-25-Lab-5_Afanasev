@@ -7,17 +7,21 @@ namespace Lab5
         public static void Main()
         {
             int[,] input1 = {
-                { 1, 2, 3, 4, -5, -6, -7 },
-                { 5, 11, -17, 11, -10, 6, 5 },
-                { -9, -10, -11, -14, -15, -16, 1 },
-                { -9, -10, -11, -14, 15, -6, -2 },
-                { -9, -10, -11, -14, -15, 6, 4 },
-                { 5, 11, -17, 11, -10, 6, -5 },
-                { 1, 1, -2, 3, -4, 0, 0 },
-                { 0, -2, -3, -4, -5, 0, 5 }
+                { 1, 2, 4, 6 },
+                { 5, -6, 7, 11 },
+                { -1, 4, -5, 6 },
+                { 1, 4, 5, 6 }
             };
+            int[,] input2 = {
+                { 1, 2, 3, 4, 5, 6, 7 },
+                { 5, 6, 7, 8, -9, 10, 11 },
+                { 9, 10, -11, -12, -13, -14, -15 },
+                { -13, -14, 15, 16, 17, 18, -19 }
+            };
+
+            MatrixShow MS = new MatrixShow();
             Purple purp = new Purple();
-            purp.Task7(input1);
+            purp.Task10(input1, input2);
             //Console.WriteLine(string.Join(' ', );
             
         }
@@ -34,6 +38,13 @@ namespace Lab5
                     Console.Write($"{matrix[y, x]} ");
                 }
                 Console.WriteLine();
+            }
+        }
+        public void ShowArrayMatrix(int[][] matrix)
+        {
+            for(int y = 0; y < matrix.Length; y++)
+            {
+                Console.WriteLine(string.Join(' ', matrix[y]));
             }
         }
     }

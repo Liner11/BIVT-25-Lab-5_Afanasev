@@ -6,6 +6,7 @@ namespace Lab5
 {
     public class Purple
     {
+        MatrixShow MS = new MatrixShow();
         public int[] Task1(int[,] matrix)
         {
             int[] answer = null;
@@ -106,41 +107,10 @@ namespace Lab5
         {
 
             // code here
-            int maxEl;
-            int sum;
-            int count;
-            bool isA;
-            for (int x = 0; x < matrix.GetLength(0); x++)
-            {
-                maxEl = matrix[x, 0];
-                for (int y = 0; y < matrix.GetLength(1); y++)
-                {
-                    if (matrix[x, y] > maxEl)
-                    {
-                        maxEl = matrix[x, y];
-                    }
-                }
-                isA = false;
-                count = 0;
-                sum = 0;
-                for (int y = 0; y < matrix.GetLength(1); y++)
-                {
-                    if (matrix[x, y] == maxEl)
-                    {
-                        isA = true;
-                    }
-                    else if (matrix[x, y] > 0 && isA)
-                    {
-                        count++;
-                        sum += matrix[x, y];
-                    }
-                }
-
-            }
-            //CHECK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            
             // end
 
-            }
+        }
         public void Task5(int[,] matrix, int k)
         {
 
@@ -172,7 +142,24 @@ namespace Lab5
         {
 
             // code here
-            
+            int maxEl;
+            for(int x = 0; x < array.Length; x++)
+            {
+                maxEl = matrix[0, x];
+                for(int y = 0; y < matrix.GetLength(0); y++)
+                {
+                    if (maxEl < matrix[y, x]) maxEl = matrix[y, x];
+                }
+                for (int y = 0; y < matrix.GetLength(0); y++)
+                {
+                    if (matrix[y, x] == maxEl && matrix[y, x] < array[x])
+                    {
+                        matrix[y, x] = array[x];
+                        break;
+                    }
+                }
+            }
+            //YES
             // end
 
         }
@@ -241,13 +228,22 @@ namespace Lab5
 
             // code here
             int n = matrix.GetLength(0);
+            int sum = 0;
             if(n == matrix.GetLength(1))
             {
                 answer = new int[(n * 2) - 1];
+                for(int x = 0; x < matrix.GetLength(0); x++)
+                {
+                    
+                }
+                answer[0] = sum;
             }
-
-            MatrixShow MS = new MatrixShow();
+            
+            
             MS.ShowMatrix(matrix);
+
+            Console.WriteLine();
+            Console.WriteLine(string.Join(' ', answer));
             // end
 
             return answer;
@@ -257,6 +253,8 @@ namespace Lab5
 
             // code here
 
+
+
             // end
 
         }
@@ -265,6 +263,11 @@ namespace Lab5
             int[,] answer = null;
 
             // code here
+            if(B.GetLength(1) == A.GetLength(0))
+            {
+                answer = new int[B.GetLength(1), A.GetLength(0)];
+                for (int x = 0; x < answer.GetLength(0))
+            }
 
             // end
 
@@ -275,7 +278,27 @@ namespace Lab5
             int[][] answer = null;
 
             // code here
-
+            int n;
+            int z;
+            answer = new int[matrix.GetLength(0)][];
+            for(int y = 0; y < matrix.GetLength(0); y++)
+            {
+                n = 0;
+                for (int x = 0; x < matrix.GetLength(1); x++)
+                {
+                    if (matrix[y, x] >= 0) n++;
+                }
+                answer[y] = new int[n];
+            }
+            for (int y = 0; y < matrix.GetLength(0); y++)
+            {
+                z = 0;
+                for (int x = 0; x < matrix.GetLength(1); x++)
+                {
+                    if (matrix[y, x] >= 0) answer[y][z++] = matrix[y, x];
+                }
+            }
+            //YES
             // end
 
             return answer;
@@ -286,6 +309,30 @@ namespace Lab5
 
             // code here
 
+            int n = 0;
+            for(int x = 0; x < array.Length; x++)
+            {
+                for(int y = 0; y < array[x].Length; y++)
+                {
+                    n++;
+                }
+            }
+            n = (int)Math.Ceiling(Math.Sqrt(n));
+            answer = new int[n, n];
+            int i = 0, j = 0;
+            for (int x = 0; x < array.Length; x++)
+            {
+                for (int y = 0; y < array[x].Length; y++)
+                {
+                    if(i == n)
+                    {
+                        i = 0;
+                        j++;
+                    }
+                    answer[j, i++] = array[x][y];
+                }
+            }
+            //YES
             // end
 
             return answer;
