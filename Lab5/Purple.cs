@@ -263,11 +263,6 @@ namespace Lab5
             int[,] answer = null;
 
             // code here
-            if(B.GetLength(1) == A.GetLength(0))
-            {
-                answer = new int[B.GetLength(1), A.GetLength(0)];
-                for (int x = 0; x < answer.GetLength(0))
-            }
 
             // end
 

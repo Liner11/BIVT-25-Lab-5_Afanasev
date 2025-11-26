@@ -44,8 +44,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T07:53:36.2Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T07:53:36.2Z"
             },
             {
               "$type": "Document",
@@ -55,7 +54,7 @@
               "RelativeDocumentMoniker": "Purple.cs",
               "ToolTip": "C:\\MisisStudyCS\\BIVT-25-Lab-5_Afanasev\\Lab5\\Purple.cs",
               "RelativeToolTip": "Purple.cs",
-              "ViewState": "AgIAAPMAAAAAAAAAAAAgwAwBAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAPMAAAAAAAAAAAAgwAkBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-17T06:26:36.916Z",
               "EditorCaption": ""
@@ -70,8 +69,7 @@
               "RelativeToolTip": "..\\Lab5test\\PurpleTest.cs",
               "ViewState": "AgIAAOsBAAAAAAAAAAAAAKMBAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-25T19:25:57.868Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-25T19:25:57.868Z"
             },
             {
               "$type": "Document",
@@ -83,8 +81,7 @@
               "RelativeToolTip": "..\\Lab5test\\Data.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAQwCQAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-25T19:40:04.068Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-25T19:40:04.068Z"
             }
           ]
         }
