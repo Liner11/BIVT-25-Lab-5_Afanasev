@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Reflection.Emit;
 using System.Runtime.InteropServices;
+using System.Xml;
 
 namespace Lab5
 {
@@ -107,7 +108,40 @@ namespace Lab5
         {
 
             // code here
-            
+            int maxEl;
+            int sum;
+            int count;
+            bool isA;
+            for(int y = 0; y < matrix.GetLength(0); y++)
+            {
+                sum = 0;
+                count = 0;
+                maxEl = matrix[y, 0];
+                isA = false;
+                for (int x = 0; x < matrix.GetLength(1); x++)
+                {
+                    if (maxEl < matrix[y, x]) maxEl = matrix[y, x];
+                }
+                for (int x = 0; x < matrix.GetLength(1); x++)
+                {
+                    if(isA && matrix[y, x] > 0)
+                    {
+                        sum += matrix[y, x];
+                        count++;
+                    }
+                    else if(!isA && matrix[y, x] == maxEl) isA = true;
+                }
+                isA = false;
+                for(int x = 0; x < matrix.GetLength(1); x++)
+                {
+                    if (!isA && matrix[y, x] < 0)
+                    {
+                        if (sum != 0) matrix[y, x] = sum / count;
+                    }
+                    else if (!isA && matrix[y, x] == maxEl) isA = true;
+                }
+            }
+            //YES
             // end
 
         }
@@ -133,11 +167,10 @@ namespace Lab5
             {
                 matrix[y, k] = maxLine[matrix.GetLength(0) - y - 1];
             }
-            
             //YES
             // end
 
-            }
+        }
         public void Task6(int[,] matrix, int[] array)
         {
 
@@ -229,21 +262,42 @@ namespace Lab5
             // code here
             int n = matrix.GetLength(0);
             int sum = 0;
-            if(n == matrix.GetLength(1))
+            int y;
+            int x;
+            int xStart = 0, yStart = n - 1;
+            bool isA;
+            if (n == matrix.GetLength(1))
             {
+                isA = false;
                 answer = new int[(n * 2) - 1];
-                for(int x = 0; x < matrix.GetLength(0); x++)
+                for(int i = 0; i < answer.Length; i++)
                 {
-                    
+                    y = yStart;
+                    x = xStart;
+                    sum = 0;
+                    while (x < n && y < n)
+                    {
+                        sum += matrix[y++, x++];
+                    }
+                    if(yStart > 0 && !isA)
+                    {
+                        yStart--;
+                    }
+                    else if(yStart < 0 && !isA)
+                    {
+                        xStart = 1;
+                        yStart = 0;
+                        isA = true;
+                    }
+                    else
+                    {
+                        xStart++;
+                    }
+                    answer[i] = sum;
                 }
-                answer[0] = sum;
+                
             }
-            
-            
-            MS.ShowMatrix(matrix);
-
-            Console.WriteLine();
-            Console.WriteLine(string.Join(' ', answer));
+            //YES
             // end
 
             return answer;
@@ -252,9 +306,60 @@ namespace Lab5
         {
 
             // code here
-
-
-
+            int maxEl = Math.Abs(matrix[0, 0]);
+            int yEl = 0;
+            int xEl = 0;
+            for(int y = 0; y < matrix.GetLength(0); y++) 
+            {
+                for (int x = 0; x < matrix.GetLength(1); x++)
+                {
+                    if (maxEl < Math.Abs(matrix[y, x]))
+                    {
+                        maxEl = Math.Abs(matrix[y, x]);
+                        yEl = y; xEl = x;
+                    }
+                }
+            }
+            int yShift = k - yEl;
+            int xShift = k - xEl;
+            int temp;
+            if(yShift > 0)
+            {
+                for(int x = 0; x < matrix.GetLength(1); x++)
+                {
+                    temp = matrix[yEl, x];
+                    for (int i = yEl; i < k; i++) matrix[i, x] = matrix[i + 1, x];
+                    matrix[k, x] = temp;
+                }
+            }
+            if(yShift < 0)
+            {
+                for(int x = 0; x < matrix.GetLength(1); x++)
+                {
+                    temp = matrix[yEl, x];
+                    for (int i = yEl; i > k; i--) matrix[i, x] = matrix[i - 1, x];
+                    matrix[k, x] = temp;
+                }
+            }
+            if(xShift > 0)
+            {
+                for(int y = 0; y < matrix.GetLength(0); y++)
+                {
+                    temp = matrix[y, xEl];
+                    for (int i = xEl; i < k; i++) matrix[y, i] = matrix[y, i + 1];
+                    matrix[y, k] = temp;
+                }
+            }
+            if(xShift < 0)
+            {
+                for(int y = 0; y < matrix.GetLength(0); y++)
+                {
+                    temp = matrix[y, xEl];
+                    for (int i = xEl; i > k; i--) matrix[y, i] = matrix[y, i - 1];
+                    matrix[y, k] = temp;
+                }
+            }
+            //YES
             // end
 
         }
@@ -263,7 +368,10 @@ namespace Lab5
             int[,] answer = null;
 
             // code here
-
+            if(A.GetLength(1) == B.GetLength(0))
+            {
+                answer = new int[A.GetLength(1), B.GetLength(0)];
+            }
             // end
 
             return answer;
